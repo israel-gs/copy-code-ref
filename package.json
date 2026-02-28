@@ -1,0 +1,50 @@
+{
+  "name": "copy-code-ref",
+  "displayName": "Copy Code Reference",
+  "description": "Copy a reference to the selected code in the format @filename.ext#startLine-endLine",
+  "version": "0.0.1",
+  "publisher": "israelgs",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copyCodeRef.copy",
+        "title": "Copy Code Reference"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "copyCodeRef.copy",
+          "group": "9_cutcopypaste@50",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "copyCodeRef.copy",
+        "key": "ctrl+shift+alt+c",
+        "mac": "cmd+shift+alt+c",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  }
+}
