@@ -3,7 +3,7 @@
   "displayName": "Copy Code Reference",
   "description": "Copy a reference to the selected code in the format @filename.ext#startLine-endLine",
   "version": "0.0.1",
-  "publisher": "israelgs",
+  "publisher": "israel-gs",
   "engines": {
     "vscode": "^1.80.0"
   },
