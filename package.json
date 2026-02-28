@@ -4,6 +4,10 @@
   "description": "Copy a reference to the selected code in the format @filename.ext#startLine-endLine",
   "version": "0.0.1",
   "publisher": "israel-gs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/israel-gs/copy-code-ref"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
