@@ -40,11 +40,14 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && mocha out/test/**/*.test.js"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.10",
     "@types/node": "^25.3.3",
     "@types/vscode": "^1.80.0",
+    "mocha": "^11.7.5",
     "typescript": "^5.3.0"
   }
 }

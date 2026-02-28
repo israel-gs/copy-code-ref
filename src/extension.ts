@@ -1,6 +1,13 @@
 import * as vscode from "vscode";
 import * as path from "path";
 
+export function buildRef(fileName: string, startLine: number, endLine: number): string {
+  if (startLine === endLine) {
+    return `@${fileName}#${startLine}`;
+  }
+  return `@${fileName}#${startLine}-${endLine}`;
+}
+
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
     "copyCodeRef.copy",
@@ -15,12 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
       const startLine = selection.start.line + 1;
       const endLine = selection.end.line + 1;
 
-      let ref: string;
-      if (startLine === endLine) {
-        ref = `@${fileName}#${startLine}`;
-      } else {
-        ref = `@${fileName}#${startLine}-${endLine}`;
-      }
+      const ref = buildRef(fileName, startLine, endLine);
 
       vscode.env.clipboard.writeText(ref);
       vscode.window.setStatusBarMessage(`Copied: ${ref}`, 3000);
